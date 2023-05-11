@@ -30,17 +30,17 @@ struct CategoryArtistView: View {
                             ForEach(chunk, id:\.name){ artist in
                                 LazyVStack(){
                                     
-                                        NavigationLink(destination:Text("asdf")){
+                                    NavigationLink(destination: ArtistDetailView(artistDetail: .init(id: artist.id, name: artist.name, link: "", share: "", picture: "", pictureSmall: "", pictureMedium: artist.pictureMedium, pictureBig: "", pictureXl: "", nbAlbum: 0, nbFan: 0, radio: false, tracklist: "", type: ""))){
                                             ZStack(alignment: .bottom){
                                                 
                                                 
                                                 
-                                                AsyncImage(url: URL(string: artist.picture)).clipShape(RoundedRectangle(cornerRadius: 20))
+                                                AsyncImage(url: URL(string: artist.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180,height:180).background(.black).clipShape(RoundedRectangle(cornerRadius: 20))
                                                 Text(artist.name).padding(5)
                                                     .background(.black).clipShape(RoundedRectangle(cornerRadius: 5))
                                                     .font(.caption)
                                                     .foregroundColor(.white)
-                                                    .offset(y:-5)
+                                                    .offset(y:-5).fontWeight(.heavy)
                                             }
                                         }
                                         

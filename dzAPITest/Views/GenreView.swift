@@ -28,10 +28,10 @@ struct GenreView: View{
 
                                             ZStack(alignment: .bottom){
 
-                                                AsyncImage(url: URL(string: genre.picture)).clipShape(RoundedRectangle(cornerRadius: 20))
+                                                AsyncImage(url: URL(string: genre.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180, height:180).background(.black).clipShape(RoundedRectangle(cornerRadius: 20))
                                                 Text(genre.name).padding(5)
                                                     .background(.black).clipShape(RoundedRectangle(cornerRadius: 5))
-                                                    .font(.caption)
+                                                    .font(.caption).fontWeight(.heavy)
                                                     .foregroundColor(.white)
                                                     .offset(y:-5)
 
@@ -46,7 +46,13 @@ struct GenreView: View{
      
 
                     }
-                }
+                }.listStyle(.plain).navigationBarTitle("Categories", displayMode: .inline)
+                    .alert(isPresented: $gVM.hasError, error: gVM.error){
+                        Button(action: gVM.fetchGenres){
+                            Text("try again")
+                        }
+                    }
+                    .toolbarBackground(Color(red: 0.1, green: 0.2, blue: 0.45), for: .navigationBar)
                 
                 
             }
