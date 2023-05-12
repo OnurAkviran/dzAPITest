@@ -12,9 +12,9 @@ final class AlbumDetailViewModel: ObservableObject {
     @Published var hasError = false
     @Published var error: UserError?
     
-    func fetchAlbumDetails() {
+    func fetchAlbumDetails(_ artistString:String){
         hasError = false
-        let albumDetailsUrl = "https://api.deezer.com/artist/8283402/albums"
+        let albumDetailsUrl = "https://api.deezer.com/artist/\(artistString)/albums"
         
         if let url = URL(string: albumDetailsUrl) {
             URLSession.shared.dataTask(with: url){ data,response, error in

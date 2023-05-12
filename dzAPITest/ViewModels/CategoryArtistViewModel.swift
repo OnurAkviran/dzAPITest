@@ -12,9 +12,9 @@ final class CategoryArtistViewModel: ObservableObject {
     @Published var hasError = false
     @Published var error: UserError?
     
-    func fetchCategoryArtists() {
+    func fetchCategoryArtists(_ categoryArtistString: String) {
         hasError = false
-        let categoryArtistUrl = "https://api.deezer.com/genre/116/artists"
+        let categoryArtistUrl = "https://api.deezer.com/genre/\(categoryArtistString)/artists"
         
         if let url = URL(string: categoryArtistUrl) {
             URLSession.shared.dataTask(with: url){ data,response, error in

@@ -30,7 +30,7 @@ struct CategoryArtistView: View {
                             ForEach(chunk, id:\.name){ artist in
                                 LazyVStack(){
                                     
-                                    NavigationLink(destination: ArtistDetailView(artistDetail: .init(id: artist.id, name: artist.name, link: "", share: "", picture: "", pictureSmall: "", pictureMedium: artist.pictureMedium, pictureBig: "", pictureXl: "", nbAlbum: 0, nbFan: 0, radio: false, tracklist: "", type: ""))){
+                                    NavigationLink(destination: ArtistDetailView(artistDetail: .init(id: artist.id, name: artist.name, link: "", share: "", picture: artist.picture, pictureSmall: "", pictureMedium: artist.pictureMedium, pictureBig: "", pictureXl: "", nbAlbum: 0, nbFan: 0, radio: false, tracklist: "", type: ""))){
                                             ZStack(alignment: .bottom){
                                                 
                                                 
@@ -54,7 +54,7 @@ struct CategoryArtistView: View {
                         
                     }
                     
-                }.listStyle(.plain).navigationBarTitle("\(categoryName) Artists", displayMode: .inline).toolbarBackground(Color(red: 0.1, green: 0.2, blue: 0.45), for: .navigationBar).onAppear(perform: caVM.fetchCategoryArtists)
+                }.listStyle(.plain).navigationBarTitle("\(categoryName) Artists", displayMode: .inline).toolbarBackground(Color(red: 0.1, green: 0.2, blue: 0.45), for: .navigationBar).onAppear(perform:{caVM.fetchCategoryArtists(String(categoryArtist.id))})
             }
             
             

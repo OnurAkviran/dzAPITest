@@ -20,7 +20,7 @@ struct ArtistDetailView: View {
                 ], center: .top, startRadius: 200, endRadius: 400)
                     .ignoresSafeArea()
                 VStack{
-                    AsyncImage(url: URL(string: artistDetail.pictureMedium)).clipShape(Circle()).frame(width:260,height:260).background(.green).clipShape(Circle())
+                    AsyncImage(url: URL(string: artistDetail.picture)).clipShape(Circle()).frame(width:125,height:125).background(.green).clipShape(Circle())
                     Text("\(artistDetail.name)").font(.title).fontWeight(.black)
                     Text("\(artistDetail.nbFan) listeners").font(.title2).fontWeight(.medium)
                     ScrollView{
@@ -40,6 +40,6 @@ struct ArtistDetailView: View {
 
 struct ArtistDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistDetailView(artistDetail: .init(id: 0, name: "Artist Name", link: "link", share: "share", picture: "pic", pictureSmall: "picS", pictureMedium: "https://e-cdns-images.dzcdn.net/images/artist/aee3e04eea97d949e423521f7f9c56cd/250x250-000000-80-0-0.jpg", pictureBig: "picB", pictureXl: "picXL", nbAlbum: 0, nbFan: 0, radio: true, tracklist: "tracklist", type: "type"))
+        ArtistDetailView(artistDetail: .init(id: 117, name: "Artist Name", link: "link", share: "share", picture: "https://api.deezer.com/artist/8283402/image", pictureSmall:"https://e-cdns-images.dzcdn.net/images/artist/aee3e04eea97d949e423521f7f9c56cd/56x56-000000-80-0-0.jpg", pictureMedium: "https://e-cdns-images.dzcdn.net/images/artist/aee3e04eea97d949e423521f7f9c56cd/250x250-000000-80-0-0.jpg", pictureBig: "picB", pictureXl: "picXL", nbAlbum: 0, nbFan: 0, radio: true, tracklist: "tracklist", type: "type"))
     }
 }

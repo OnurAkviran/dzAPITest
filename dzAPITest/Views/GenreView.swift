@@ -23,7 +23,7 @@ struct GenreView: View{
                         HStack{
                             ForEach(chunk, id: \.name) { genre in
                                 LazyVStack{
-                                    NavigationLink(destination: CategoryArtistView(categoryArtist: .init(id: 0, radio: true, name: "s", picture: "s", tracklist: "s", type: "s", pictureSmall: "s", pictureMedium: "s", pictureBig: "s", pictureXl: "s"), categoryName: genre.name)){
+                                    NavigationLink(destination: CategoryArtistView(categoryArtist: .init(id: genre.id, radio: true, name: "s", picture: "s", tracklist: "s", type: "s", pictureSmall: "s", pictureMedium: "s", pictureBig: "s", pictureXl: "s"), categoryName: genre.name)){
                                         VStack(){
 
                                             ZStack(alignment: .bottom){
