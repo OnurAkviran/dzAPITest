@@ -6,10 +6,27 @@
 //
 
 import SwiftUI
+import AVFoundation
+import AVFAudio
+
+class SoundManager : ObservableObject {
+    var audioPlayer: AVPlayer?
+
+    func playSound(sound: String){
+        if let url = URL(string: sound) {
+            self.audioPlayer = AVPlayer(url: url)
+        }
+    }
+}
+
 
 struct TracklistView: View {
     @StateObject private var tVM = TracklistViewModel()
+    @StateObject private var soundManager = SoundManager()
+    @State var nowPlaying = false
+    @State var isLiked = false
     let tracklistDetail: TracklistDetail
+
     var albumCover: String = ""
     
     init(tracklistDetail: TracklistDetail, albumCover: String) {
@@ -18,7 +35,7 @@ struct TracklistView: View {
         }
     
     var body: some View {
-        
+       
         NavigationStack{
             ZStack{
                 RadialGradient(stops: [
@@ -31,6 +48,7 @@ struct TracklistView: View {
                     
                     ScrollView{
                         ForEach(tVM.tracklistDetails, id: \.id){ track in
+                           
                             LazyVStack{
                                 //Text("\(track.title)").offset(x:20)
                                 
@@ -42,13 +60,27 @@ struct TracklistView: View {
                                         .leading)
                                         .background(.gray)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .onTapGesture {
+                                            soundManager.playSound(sound: track.preview)
+                                                            nowPlaying.toggle()
+                                                            
+                                                            if nowPlaying{
+                                                                soundManager.audioPlayer?.play()
+                                                            } else {
+                                                                soundManager.audioPlayer?.pause()
+                                                            }
+                                        }
                                     HStack{
                                         
                                         Text("\(track.title)")
                                             .frame(width:200,height:65,alignment: .leading)
                                             .foregroundColor(.black).background(.clear).offset(x:30)
                         
-                                        Text("❤️").offset(x:27)
+                                        Image(systemName:isLiked ? "heart.fill":"heart").offset(x:27)
+                                            .fontWeight(.heavy)
+                                            .onTapGesture {
+                                                isLiked.toggle()
+                                        }
                                         
                                         
                                     }

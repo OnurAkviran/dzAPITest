@@ -22,7 +22,7 @@ struct ArtistDetailView: View {
                 VStack{
                     AsyncImage(url: URL(string: artistDetail.picture)).clipShape(Circle()).frame(width:125,height:125).background(.green).clipShape(Circle())
                     Text("\(artistDetail.name)").font(.title).fontWeight(.black)
-                    Text("\(artistDetail.nbFan) listeners").font(.title2).fontWeight(.medium)
+                   
                     ScrollView{
                         AlbumDetailView(albumDetail: .init(id: artistDetail.id , title: "", link: "", cover: "", coverSmall: "", coverMedium: "", coverBig: "", coverXl: "", md5Image: "", genreID: 0, fans: 0, releaseDate: "", recordType: "", tracklist: "", explicitLyrics: false, type: ""))
                         

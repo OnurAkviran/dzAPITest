@@ -58,6 +58,6 @@ struct AlbumDetailView: View {
 
 struct AlbumDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumDetailView(albumDetail: .init(id: 117, title: "Album Title", link: "", cover: "", coverSmall: "https://e-cdns-images.dzcdn.net/images/cover/ffd88577ab6fdc7e9d81b8b6e576f0e9/56x56-000000-80-0-0.jpg", coverMedium: "", coverBig: "", coverXl: "", md5Image: "", genreID: 0, fans: 0, releaseDate: "", recordType: "", tracklist: "", explicitLyrics: false, type: ""))
+        AlbumDetailView(albumDetail: .init(id: 117, title: "Album Title", link: "", cover: "", coverSmall: "https://e-cdns-images.dzcdn.net/images/cover/ffd88577ab6fdc7e9d81b8b6e576f0e9/56x56-000000-80-0-0.jpg", coverMedium: "", coverBig: "", coverXl: "", md5Image: "",genreID: 0, fans: 0, releaseDate: "", recordType: "", tracklist: "", explicitLyrics: false, type: ""))
     }
 }
