@@ -17,11 +17,7 @@ struct CategoryArtistView: View {
     var body: some View{
         NavigationStack{
             ZStack{
-                RadialGradient(stops: [
-                    .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
-                    .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
-                ], center: .top, startRadius: 200, endRadius: 400)
-                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(stops:[Gradient.Stop(color: Color(red:87/255,green:108/255,blue:188/255), location: 0.02),Gradient.Stop(color:  Color(red:11/255,green:36/255,blue:71/255), location: 0.30)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 
                 ScrollView{
                     
@@ -35,12 +31,12 @@ struct CategoryArtistView: View {
                                                 
                                                 
                                                 
-                                                AsyncImage(url: URL(string: artist.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180,height:180).background(.black).clipShape(RoundedRectangle(cornerRadius: 20))
+                                                AsyncImage(url: URL(string: artist.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180,height:180).background(.ultraThinMaterial).clipShape(RoundedRectangle(cornerRadius: 20))
                                                 Text(artist.name).padding(5)
-                                                    .background(.black).clipShape(RoundedRectangle(cornerRadius: 5))
-                                                    .font(.caption)
+                                                    .background(.clear).clipShape(RoundedRectangle(cornerRadius: 5))
+                                                    .font(.title3)
                                                     .foregroundColor(.white)
-                                                    .offset(y:-5).fontWeight(.heavy)
+                                                    .offset(y:0).fontWeight(.medium)
                                             }
                                         }
                                         
@@ -54,7 +50,7 @@ struct CategoryArtistView: View {
                         
                     }
                     
-                }.listStyle(.plain).navigationBarTitle("\(categoryName) Artists", displayMode: .inline).toolbarBackground(Color(red: 0.1, green: 0.2, blue: 0.45), for: .navigationBar).onAppear(perform:{caVM.fetchCategoryArtists(String(categoryArtist.id))})
+                }.listStyle(.plain).navigationBarTitle("\(categoryName) Artists", displayMode: .inline).toolbarBackground(.regularMaterial).onAppear(perform:{caVM.fetchCategoryArtists(String(categoryArtist.id))})
             }
             
             

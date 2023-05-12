@@ -26,13 +26,13 @@ struct AlbumDetailView: View {
                                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                                 .frame(width:300,height:65,alignment:
                                                 .leading)
-                                                .background(.gray)
+                                                .background(Color(red:25/255,green:108/255,blue:188/255))
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                             HStack{
                                                 
                                                 Text("\(album.title)")
                                                     .frame(width:220,height:65,alignment: .leading)
-                                                    .foregroundColor(.black).offset(x:27)
+                                                    .foregroundColor(Color(red:165/255,green:215/255,blue:232/255)).offset(x:27)
                                                 
                                             }
                                                 

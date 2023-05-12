@@ -13,11 +13,7 @@ struct GenreView: View{
     var body: some View{
         NavigationStack{
             ZStack{
-                RadialGradient(stops: [
-                    .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
-                    .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
-                ], center: .top, startRadius: 200, endRadius: 400)
-                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(stops:[Gradient.Stop(color: Color(red:87/255,green:108/255,blue:188/255), location: 0.02),Gradient.Stop(color:  Color(red:11/255,green:36/255,blue:71/255), location: 0.30)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 ScrollView{
                     ForEach(gVM.genres.chunked(into: 2), id:\.self) { chunk in
                         HStack{
@@ -28,7 +24,7 @@ struct GenreView: View{
 
                                             ZStack(alignment: .bottom){
 
-                                                AsyncImage(url: URL(string: genre.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180, height:180).background(.black).clipShape(RoundedRectangle(cornerRadius: 20))
+                                                AsyncImage(url: URL(string: genre.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180, height:180).background(.ultraThinMaterial).clipShape(RoundedRectangle(cornerRadius: 20))
                                                 Text(genre.name).padding(5)
                                                     .background(.black).clipShape(RoundedRectangle(cornerRadius: 5))
                                                     .font(.caption).fontWeight(.heavy)
@@ -52,7 +48,7 @@ struct GenreView: View{
                             Text("try again")
                         }
                     }
-                    .toolbarBackground(Color(red: 0.1, green: 0.2, blue: 0.45), for: .navigationBar)
+                    .toolbarBackground(.regularMaterial)
                 
                 
             }

@@ -38,11 +38,7 @@ struct TracklistView: View {
        
         NavigationStack{
             ZStack{
-                RadialGradient(stops: [
-                    .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
-                    .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
-                ], center: .top, startRadius: 200, endRadius: 400)
-                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(stops:[Gradient.Stop(color: Color(red:87/255,green:108/255,blue:188/255), location: 0.02),Gradient.Stop(color:  Color(red:11/255,green:36/255,blue:71/255), location: 0.30)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 VStack{
                     Text(tracklistDetail.title).font(.title).fontWeight(.semibold).foregroundColor(.white)
                     
@@ -58,7 +54,7 @@ struct TracklistView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
                                         .frame(width:300,height:65,alignment:
                                         .leading)
-                                        .background(.gray)
+                                        .background(Color(red:25/255,green:108/255,blue:188/255))
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .onTapGesture {
                                             soundManager.playSound(sound: track.preview)
@@ -74,7 +70,7 @@ struct TracklistView: View {
                                         
                                         Text("\(track.title)")
                                             .frame(width:200,height:65,alignment: .leading)
-                                            .foregroundColor(.black).background(.clear).offset(x:30)
+                                            .foregroundColor(Color(red:165/255,green:215/255,blue:232/255)).background(.clear).offset(x:30)
                         
                                         Image(systemName:isLiked ? "heart.fill":"heart").offset(x:27)
                                             .fontWeight(.heavy)
