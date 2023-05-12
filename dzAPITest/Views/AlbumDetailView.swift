@@ -18,20 +18,31 @@ struct AlbumDetailView: View {
                     ForEach(abdVM.albumDetails, id: \.id){ album in
                         LazyVStack{
                             
-                                ZStack{
-                                    
-                                    AsyncImage(url: URL(string: album.coverSmall))
-                                        .padding(4)
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .frame(width:300,height:65,alignment:
-                                        .leading)
-                                        .background(.gray)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                               
+                            NavigationLink(destination: TracklistView(tracklistDetail: .init(id: album.id, readable: true, title: album.title, titleShort: "", titleVersion: "", isrc: "", link: "", duration: 0, trackPosition: 0, diskNumber: 0, rank: 0, explicitLyrics: true, explicitContentLyrics: 0, explicitContentCover: 0, preview: ""), albumCover: album.coverSmall)){
+                                        ZStack{
+                                            AsyncImage(url: URL(string: album.coverSmall))
+                                                .padding(4)
+                                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                                .frame(width:300,height:65,alignment:
+                                                .leading)
+                                                .background(.gray)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            HStack{
+                                                
+                                                Text("\(album.title)")
+                                                    .frame(width:220,height:65,alignment: .leading)
+                                                    .foregroundColor(.black).offset(x:27)
+                                                
+                                            }
+                                                
+                                           
+                                        }
                                         
-                                    Text("\(album.title)").offset(x:20)
+                                    }
                                     
                                     
-                                }
+                                
                             
                         }
                         

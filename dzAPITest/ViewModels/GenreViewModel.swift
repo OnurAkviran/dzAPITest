@@ -46,57 +46,6 @@ final class GenreViewModel: ObservableObject {
 
 
 
-
-//final class GenreViewModel: ObservableObject{
-//
-//    struct ApiResponse: Codable {
-//        let data: [Genre]
-//
-//    }
-//
-//    @Published var genres: [Genre] = []
-//    @Published var hasError = false
-//    @Published var error: UserError?
-//
-//
-//    func fetchGenres(){
-//        hasError = false
-//        let genreUrl = "https://api.deezer.com/genre"
-//
-//        if let url = URL(string: genreUrl){
-//
-//            URLSession.shared.dataTask(with: url){ [weak self] data,response, error in
-//
-//                DispatchQueue.main.async {
-//
-//                    if let error = error{
-//                        self?.hasError = true
-//                        self?.error = UserError.custom(error: error)
-//                    }
-//
-//                    else{
-//
-//                        let decoder = JSONDecoder()
-//                        //decoder.keyDecodingStrategy = .useDefaultKeys
-//
-//                        if let data = data,
-//                            let genres = try? decoder.decode([Genre].self, from: data){
-//
-//                            self?.genres = genres
-//                        }
-//
-//                        else{
-//                            self?.hasError = true
-//                            self?.error = UserError.failedToDecode
-//                        }
-//                    }
-//                }
-//            }.resume()
-//        }
-//    }
-//}
-
-
 extension GenreViewModel{
     
     enum UserError: LocalizedError{
