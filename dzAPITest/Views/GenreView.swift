@@ -25,11 +25,11 @@ struct GenreView: View{
                                             ZStack(alignment: .bottom){
 
                                                 AsyncImage(url: URL(string: genre.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180, height:180).background(.ultraThinMaterial).clipShape(RoundedRectangle(cornerRadius: 20))
-                                                Text(genre.name).padding(5)
+                                                Text(genre.name).frame(width:160,height:30).padding(5)
                                                     .clipShape(RoundedRectangle(cornerRadius: 5))
                                                     .font(.caption).fontWeight(.heavy)
                                                     .foregroundColor(.white)
-                                                    .offset(y:-5)
+                                                    .offset(y:4)
 
                                             }
                                     }.padding(20)

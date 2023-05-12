@@ -32,11 +32,11 @@ struct CategoryArtistView: View {
                                                 
                                                 
                                                 AsyncImage(url: URL(string: artist.picture)).clipShape(RoundedRectangle(cornerRadius: 20)).frame(width:180,height:180).background(.ultraThinMaterial).clipShape(RoundedRectangle(cornerRadius: 20))
-                                                Text(artist.name).padding(5)
+                                                Text(artist.name).frame(width:160,height:30).padding(5)
                                                     .background(.clear).clipShape(RoundedRectangle(cornerRadius: 5))
                                                     .font(.title3)
                                                     .foregroundColor(.white)
-                                                    .offset(y:0).fontWeight(.medium)
+                                                    .offset(y:4).fontWeight(.medium)
                                             }
                                         }
                                         
