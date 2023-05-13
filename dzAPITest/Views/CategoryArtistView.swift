@@ -17,6 +17,7 @@ struct CategoryArtistView: View {
     var body: some View{
         NavigationStack{
             ZStack{
+                //UI Background
                 LinearGradient(gradient: Gradient(stops:[Gradient.Stop(color: Color(red:87/255,green:108/255,blue:188/255), location: 0.02),Gradient.Stop(color:  Color(red:11/255,green:36/255,blue:71/255), location: 0.30)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 
                 ScrollView{
@@ -42,7 +43,7 @@ struct CategoryArtistView: View {
                                         
                                     
                                 
-                            }
+                                }.padding(6)
                                 
                                 
                             }

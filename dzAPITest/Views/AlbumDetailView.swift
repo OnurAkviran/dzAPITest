@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Only displays list of albums, called in ArtistDetailView
 struct AlbumDetailView: View {
     @StateObject private var abdVM = AlbumDetailViewModel()
     let albumDetail: AlbumDetail

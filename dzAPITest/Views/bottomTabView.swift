@@ -16,6 +16,9 @@ struct bottomTabView: View {
                 
                 
             }.toolbar(.visible, for: .tabBar).toolbarBackground(.regularMaterial, for: .tabBar)
+            
+            // Currently just a placeholder View showing a pre selected tracklist
+            // TODO: Implement logic for the liked songs section.
             LikedSongsView().tabItem{
                 Image(systemName: "heart.fill")
                 

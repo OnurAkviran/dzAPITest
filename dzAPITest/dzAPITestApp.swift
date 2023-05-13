@@ -11,7 +11,7 @@ import SwiftUI
 struct dzAPITestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            bottomTabView()
         }
     }
 }

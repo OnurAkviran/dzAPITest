@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+// Splits arrays into chunks of "size". Used to display 2 cells in a row in Genre and Genre Artist views.
 extension Array{
     func chunked(into size: Int) -> [[Element]]{
         return stride(from: 0, to:count, by: size).map {

@@ -14,10 +14,11 @@ struct ArtistDetailView: View {
     var body: some View {
         NavigationStack{
             ZStack{
+                //UI Background
                 LinearGradient(gradient: Gradient(stops:[Gradient.Stop(color: Color(red:87/255,green:108/255,blue:188/255), location: 0.02),Gradient.Stop(color:  Color(red:11/255,green:36/255,blue:71/255), location: 0.30)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 VStack{
                     AsyncImage(url: URL(string: artistDetail.picture)).clipShape(Circle()).frame(width:1250,height:125).background(Color(red:15/255,green:52/255,blue:96/255)).clipShape(Circle())
-                    Text("\(artistDetail.name)").font(.title).fontWeight(.black).foregroundColor(Color(red:165/255,green:215/255,blue:232/255))
+                    Text("\(artistDetail.name)").font(.title).fontWeight(.medium).foregroundColor(Color(red:165/255,green:215/255,blue:232/255))
                    
                     ScrollView{
                         AlbumDetailView(albumDetail: .init(id: artistDetail.id , title: "", link: "", cover: "", coverSmall: "", coverMedium: "", coverBig: "", coverXl: "", md5Image: "", genreID: 0, fans: 0, releaseDate: "", recordType: "", tracklist: "", explicitLyrics: false, type: ""))
